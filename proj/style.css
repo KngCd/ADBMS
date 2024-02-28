@@ -37,72 +37,100 @@ header{
 }
 
 #contact{
+  border-radius: 50px;
   background-color: #0c3666;
-  height: 500px;
+  height: 100%;
+}
+#contact h1{
+  font-size: 55px;
+  padding-top: 20px;
+  text-align: center;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #contact p{
-  font-size: 60px;
+  font-size: 20px;
   text-align: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 40px;
 }
-form {
-  width: 30%;
-  position: relative;
+.form {
+  height: 450px;
+  width: 500px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.5);
+}
+.form button{
+  width: 400px;
   height: 60px;
-  overflow: hidden;
+  margin-top: 20px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  transition: all 0.2s ease;
+  background: #0c3666;
+  color: white;
+  cursor: pointer; 
+}
+.form button:hover{
+  background: white;
+  color: black;
+  border: 2px solid #0c3666;
+}
+.input-wrapper {
+  --padding: 16px;
+  --focus-color: black;
+  position: relative;
   display: flex;
   align-items: center;
-}
-form input {
   width: 100%;
-  height: 100%;
-  color: #fff;
+  max-width: 400px;
   padding-top: 20px;
-  border: none;
-  background-color: #0c3666;
-  border-bottom: 3px solid white;
 }
-form label {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  text-align: center;
+.input-wrapper-message {
+  --padding: 16px;
+  --focus-color: black;
+  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  color: white;
+  max-width: 400px;
+  padding-top: 20px;
 }
-form label::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0px;
+input {
+  padding: var(--padding);
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 6px;
   width: 100%;
-  height: 100%;
-  border-bottom: 4px solid #5aa1f3;
-  transform: translateX(-100%);
-  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
-.content-name {
+.placeholder {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
-  padding-bottom: 5px;
-  transition: all 0.3s ease;
+  background-color: white;
+  color: gray;
+  left: var(--padding);
+  padding: 0 4px;
+  transition: all 0.2s ease-in;
 }
-form input:focus {
-  outline: none;
+
+input:is(:focus, :valid) {
+  border: 2px solid var(--focus-color);
 }
-form input:focus + .label-name .content-name,
-form input:valid + .label-name .content-name {
-  transform: translateY(-150%);
+
+input:is(:focus, :valid) + .placeholder {
+  transform: translatey(calc(-1 * var(--padding) - 12px));
   font-size: 14px;
-  left: 0px;
-  color: #5aa1f3;
-}
-form input:focus + .label-name::after,
-form input:valid + .label-name::after {
-  transform: translateX(0%);
+  color: var(--focus-color);
 }
 .h2 {
   display: flex;
