@@ -12,7 +12,7 @@
     <div class="head" id="header">
     <div class="h2"><img class="logo" src="schooal.png" alt=""><p class="sc">Pansol Integrated <br>National High School<p/></div>
             <div class="h3">
-            <a class="nav-link" href="#">HOME</a>
+            <a class="nav-link" href="#content-container">HOME</a>
             <a class="nav-link" href="#about">ABOUT</a>
             <a class="nav-link" href="#contact">CONTACT US</a>
             </div>
@@ -33,7 +33,7 @@
       }
     });
   </script>
-<div class="content-container">
+<div class="content-container" id="content-container">
             <div class="h-container">
                 <p class="paragraph">
                 <span style="--d: 0s;">A FREE AND</span>
@@ -65,13 +65,27 @@
     </div>
 
     <div id="contact">
-        <p>Let's Talk</p>
-        <form method="post" action="home.php">
-        <input type="text" name="text" autocomplete="off" required />
-        <label for="text" class="label-name">
-            <span class="content-name">Name</span>
-        </label>
-        </form>
+        <h1>Let's Talk</h1>
+        <p>Use Below Form or Email me direct: pansolgarcia@yahoo.com/301132@deped.gov.ph</p>
+        <div class="form">
+        <div class="input-wrapper">
+            <input type='text' id='input' autocomplete="off" required ></input>
+            <label for='input' class='placeholder'>Name</label>
+        </div>
+        <div class="input-wrapper">
+            <input type='email' id='input' autocomplete="off" required ></input>
+            <label for='input' class='placeholder'>Email</label>
+        </div>
+        <div class="input-wrapper">
+            <input type='text' id='input' autocomplete="off" required ></input>
+            <label for='input' class='placeholder'>Contact Number</label>
+        </div>
+        <div class="input-wrapper-message">
+            <input type='text' id='input' autocomplete="off" required ></input>
+            <label for='input' class='placeholder'>Message</label>
+        </div>
+        <button>Submit</button>
+        </div>
     </div>
 </body>
 
