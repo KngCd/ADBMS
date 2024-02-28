@@ -65,7 +65,13 @@
     </div>
 
     <div id="contact">
-        <h1>contact</h1>
+        <p>Let's Talk</p>
+        <form method="post" action="home.php">
+        <input type="text" name="text" autocomplete="off" required />
+        <label for="text" class="label-name">
+            <span class="content-name">Name</span>
+        </label>
+        </form>
     </div>
 </body>
 
