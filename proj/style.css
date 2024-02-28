@@ -16,8 +16,8 @@ html{
 header{
   width: 100%;
   height: 100px;
-  position: fixed;
   top: 0;
+  position: fixed;
   z-index: 100;
 }
 .head{
@@ -34,6 +34,75 @@ header{
 #about a:target:hover,
 #about a:target:before {
   color: black;
+}
+
+#contact{
+  background-color: #0c3666;
+  height: 500px;
+}
+#contact p{
+  font-size: 60px;
+  text-align: center;
+}
+form {
+  width: 30%;
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+form input {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  padding-top: 20px;
+  border: none;
+  background-color: #0c3666;
+  border-bottom: 3px solid white;
+}
+form label {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  color: white;
+}
+form label::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 4px solid #5aa1f3;
+  transform: translateX(-100%);
+  transition: all 0.3s ease;
+}
+
+.content-name {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+}
+form input:focus {
+  outline: none;
+}
+form input:focus + .label-name .content-name,
+form input:valid + .label-name .content-name {
+  transform: translateY(-150%);
+  font-size: 14px;
+  left: 0px;
+  color: #5aa1f3;
+}
+form input:focus + .label-name::after,
+form input:valid + .label-name::after {
+  transform: translateX(0%);
 }
 .h2 {
   display: flex;
