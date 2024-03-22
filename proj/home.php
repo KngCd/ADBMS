@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pansol Integrated National High School</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header id="myHeader" class>
@@ -61,7 +61,21 @@
     </div>
 
     <div id="about">
-        <h1>about</h1>
+        <div class="about1">
+            <br><h1>Mission</h1><br>
+            <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where:</p><br>
+            <p>Students learn in a child-friendly, gender-sensitive, safe, and motivating environment.</p><br>
+            <p>Teachers facilitate learning and constantly nurture every learner.</p><br>
+            <p> Administrators and staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen.</p><br>
+            <p>Family, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners.</p>
+        </div>
+        <div class="about2">
+            <br><h1>Vision</h1><br><br><br>
+            <p>We dream of Filipinos who passionately love their country and whose values and competencies<p><br>
+            <p>enable them to realize their full potential and contribute meaningfully to building the nation.</p>
+            <p>As a learner-centered public institution, the Department of Education</p><br>
+            <p>continuously improves itself to better serve its stakeholders.</p>
+        </div>
     </div>
 
     <div id="contact">
@@ -70,7 +84,7 @@
         <div class="form">
         <div class="input-wrapper">
             <input type='text' id='input' autocomplete="off" required ></input>
-            <label for='input' class='placeholder'>Name</label>
+           <label for='input' class='placeholder'>Name</label>
         </div>
         <div class="input-wrapper">
             <input type='email' id='input' autocomplete="off" required ></input>
@@ -94,16 +108,16 @@
         <h4>Follow Us</h4>
         <ul class="wrapper">
             <li class="icon facebook">
-            <span><i class="fab fa-facebook-f"><a href="https://www.facebook.com/profile.php?id=100069237878821"><img class="img" src="fb.png"/></a></i></span>
+            <span><a href="https://www.facebook.com/profile.php?id=100069237878821"><i class="fab fa-facebook-f"></i></span>
             </li>
             <li class="icon discord">
-            <span><i class="fab fa-discord-f"><a href="https://discord.com/"><img class="img" src="dc.png"/></a></i></span>
+            <span><a href="https://discord.com/"><i class="fab fa-discord"></i></a></span>
             </li>
             <li class="icon github">
-            <span><i class="fab fa-github"><a href="https://github.com/"><img class="img" src="github.png"/></a></i></span>
+            <span><a href="https://github.com/"><i class="fab fa-github"></i></a></span>
             </li>
             <li class="icon youtube">
-            <span><i class="fab fa-youtube"><a href="https://www.youtube.com/watch?v=zZ6vybT1HQs"><img class="img" src="yt.png"/></a></i></span>
+            <span><a href="https://www.youtube.com/watch?v=zZ6vybT1HQs"><i class="fab fa-youtube"></i></a></span>
             </li>
         </ul>
         </div>
