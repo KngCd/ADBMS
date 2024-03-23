@@ -32,31 +32,69 @@ header{
   align-items: center;
   display: flex;
   flex-direction: row;
+  perspective: 500px;
 }
-.about1 {
+.content-mission {
   width: 500px;
   height: 485px;
   border-radius: 20px;
-  background-color: #0c3666;
   color: white;
   margin-top: 10px;
-  margin-left: 53px;
+  margin-left: 65px;
   text-align: center;
-  box-shadow: 0px 0px 20px 10px rgba(128, 128, 128, 0.5);
+  box-shadow: 20px 10px 20px 10px rgba(128, 128, 128, 0.5);
   font-family: Arial, Helvetica, sans-serif;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
-.about2 {
+.content-vision {
   width: 500px;
   height: 485px;
   border-radius: 20px;
-  background-color: #0c3666;
   color: white;
   margin-top: 10px;
-  margin-left: 250px;
+  margin-left: 220px;
   text-align: center;
-  box-shadow: 0px 0px 20px 10px rgba(128, 128, 128, 0.5);
+  box-shadow: 20px 10px 20px 10px rgba(128, 128, 128, 0.5);
   font-family: Arial, Helvetica, sans-serif;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
+
+.front, .back{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+.front{
+  background: white;
+  color: black;
+}
+.front h1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+.back{
+  background: #0c3666;
+  color: white;
+  transform: rotateY(180deg);
+}
+.content-mission p{
+  margin-top: 21px;
+  line-height: 35px;
+}
+.content-vision p{
+  margin-top: 130px;
+  line-height: 33px;
+}
+
 #contact{
   border-radius: 50px;
   background-color: #0c3666;
