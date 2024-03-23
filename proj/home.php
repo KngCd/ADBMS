@@ -61,22 +61,44 @@
     </div>
 
     <div id="about">
-        <div class="about1">
-            <br><h1>Mission</h1><br>
-            <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where:</p><br>
-            <p>Students learn in a child-friendly, gender-sensitive, safe, and motivating environment.</p><br>
-            <p>Teachers facilitate learning and constantly nurture every learner.</p><br>
-            <p> Administrators and staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen.</p><br>
-            <p>Family, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners.</p>
+        <div class="content-mission">
+            <div class="front"><h1>Mission</h1></div>
+            <div class="back">
+            <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where:<br>
+             Students learn in a child-friendly, gender-sensitive, safe, and motivating environment.<br>
+             Teachers facilitate learning and constantly nurture every learner.<br>
+             Administrators and staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen.<br>
+             Family, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners.</p>
+            </div>
         </div>
-        <div class="about2">
-            <br><h1>Vision</h1><br><br><br>
-            <p>We dream of Filipinos who passionately love their country and whose values and competencies<p><br>
-            <p>enable them to realize their full potential and contribute meaningfully to building the nation.</p>
-            <p>As a learner-centered public institution, the Department of Education</p><br>
-            <p>continuously improves itself to better serve its stakeholders.</p>
+        <div class="content-vision">
+            <div class="front"><h1>Vision</h1></div>
+            <div class="back">
+            <p>We dream of Filipinos who passionately love their country and whose values and competencies
+            <br>enable them to realize their full potential and contribute meaningfully to building the nation.<br>
+            As a learner-centered public institution, the Department of Education 
+            continuously improves itself to better serve its stakeholders.</p>
+            </div>
         </div>
     </div>
+        <script>
+            document.querySelectorAll('.content-mission').forEach(card => {
+                card.addEventListener('mouseover', () => {
+                    card.style.transform = 'rotateY(180deg)';
+                });
+                card.addEventListener('mouseout', () => {
+                    card.style.transform = 'rotateY(0deg)';
+                });
+            });
+            document.querySelectorAll('.content-vision').forEach(card => {
+                card.addEventListener('mouseover', () => {
+                    card.style.transform = 'rotateY(180deg)';
+                });
+                card.addEventListener('mouseout', () => {
+                    card.style.transform = 'rotateY(0deg)';
+                });
+            });
+        </script>
 
     <div id="contact">
         <h1>Let's Talk</h1>
