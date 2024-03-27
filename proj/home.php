@@ -16,23 +16,23 @@
             <a class="nav-link" href="#about">ABOUT</a>
             <a class="nav-link" href="#contact">CONTACT US</a>
             </div>
-            <button onclick="location.href='new.php'" class="bn54">
+            <button onclick="location.href='LoginSignup.php'" class="bn54">
                 <span class="bn54span">Login</span>
             </button>
     </div>
     </header>
-    <script>
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('myHeader');
-      const scrollPosition = window.pageYOffset;
+        <script>
+            window.addEventListener('scroll', function() {
+            const header = document.getElementById('myHeader');
+            const scrollPosition = window.pageYOffset;
 
-      if (scrollPosition > 50) {
-        header.style.backgroundColor = 'rgba(30, 97, 243, 0.836)';
-      } else {
-        header.style.backgroundColor = 'transparent';
-      }
-    });
-  </script>
+            if (scrollPosition > 50) {
+                header.style.backgroundColor = 'rgba(30, 97, 243, 0.836)';
+            } else {
+                header.style.backgroundColor = 'transparent';
+            }
+            });
+        </script>
 <div class="content-container" id="content-container">
             <div class="h-container">
                 <p class="paragraph">
@@ -47,11 +47,49 @@
                 <span style="--d: .4s;">An LMS streamlines education</span>
                 <span style="--d: .5s;">by centralizing content </span>
                 <span style="--d: .6s;">and activities for improved learning.</span>
-                <span style="--d: .7s;"><button class="button" onclick="location.href='Register.php'">GET STARTED </button></span>
+                <span style="--d: .7s;"><button class="button" onclick="location.href='LoginSignup.php'">GET STARTED </button></span>
             </p>     
         </div>
 </div>
-    
+    <script>
+        // Function to reset animations
+        function resetAnimations() {
+        const spans = document.querySelectorAll('.paragraph span');
+        const hContainer = document.querySelector('.h-container');
+        const hh = document.querySelector('.hh');
+
+        spans.forEach(span => {
+            span.style.animation = 'none';
+            void span.offsetWidth; // Trigger reflow
+            span.style.animation = null;
+        });
+
+        hContainer.style.animation = 'none';
+        void hContainer.offsetWidth; // Trigger reflow
+        hh.style.animation = 'none';
+        void hh.offsetWidth; // Trigger reflow
+
+        // Restore animations with a slight delay to ensure synchronization
+        setTimeout(() => {
+            spans.forEach(span => {
+            span.style.animation = null;
+            });
+            hContainer.style.animation = 'border-reveal 2.5s forwards';
+            hh.style.animation = 'border-reveal 2.5s forwards';
+        }, 10);
+        }
+
+        // Function to check if the user has scrolled to the top of the page
+        function checkScroll() {
+        if (window.scrollY === 0) {
+            resetAnimations();
+        }
+        }
+
+        // Attach event listener for scroll event
+        window.addEventListener('scroll', checkScroll);
+    </script>
+
     <div class="container2">
         <img class="logo2" src="padre.png" alt="">
         <img class="logo2" src="sk.png" alt="">
@@ -130,47 +168,47 @@
         <h4>Follow Us</h4>
         <ul class="wrapper">
             <li class="icon facebook">
-            <span><a href="https://www.facebook.com/profile.php?id=100069237878821"><i class="fab fa-facebook-f"></i></span>
+            <span><a href="https://www.facebook.com/profile.php?id=100069237878821" target="_blank"><i class="fab fa-facebook-f"></i></span>
             </li>
             <li class="icon discord">
-            <span><a href="https://discord.com/"><i class="fab fa-discord"></i></a></span>
+            <span><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i></a></span>
             </li>
             <li class="icon github">
-            <span><a href="https://github.com/"><i class="fab fa-github"></i></a></span>
+            <span><a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a></span>
             </li>
             <li class="icon youtube">
-            <span><a href="https://www.youtube.com/watch?v=zZ6vybT1HQs"><i class="fab fa-youtube"></i></a></span>
+            <span><a href="https://www.youtube.com/watch?v=zZ6vybT1HQs" target="_blank"><i class="fab fa-youtube"></i></a></span>
             </li>
         </ul>
         </div>
         <div class="ft2">
         <div class="card">
             <h4>Products</h4>
-            <a href="" class="btn">LMS for Education</a><br>
-            <a href="" class="btn">Classroom</a><br>
-            <a href="" class="btn">Assignments</a><br>
-            <a href="" class="btn">PHP Database</a><br>
+            <a href="#" class="btn">LMS for Education</a><br>
+            <a href="#" class="btn">Classroom</a><br>
+            <a href="#" class="btn">Assignments</a><br>
+            <a href="#" class="btn">PHP Database</a><br>
         </div>
         <div class="card">
             <h4>Get Products</h4>
-            <a href="" class="btn">Contact Sales</a><br>
-            <a href="" class="btn">Apply for Cloud Credits</a><br>
-            <a href="" class="btn">Sign up</a><br>
-            <a href="" class="btn">Accesbility</a><br>
+            <a href="#" class="btn">Contact Sales</a><br>
+            <a href="#" class="btn">Apply for Cloud Credits</a><br>
+            <a href="#" class="btn">Sign up</a><br>
+            <a href="#" class="btn">Accesbility</a><br>
         </div>
         <div class="card">
             <h4>For Educators</h4>
-            <a href="" class="btn">Overview</a><br>
-            <a href="" class="btn">Product Guides</a><br>
-            <a href="" class="btn">Communities</a><br>
-            <a href="" class="btn">FAQ</a><br>
+            <a href="#" class="btn">Overview</a><br>
+            <a href="#" class="btn">Product Guides</a><br>
+            <a href="#" class="btn">Communities</a><br>
+            <a href="#" class="btn">FAQ</a><br>
         </div>
         <div class="card">
             <h4>About Our LMS</h4>
-            <a href="" class="btn">Our Commitment</a><br>
-            <a href="" class="btn">For K12</a><br>
-            <a href="" class="btn">Accesbility</a><br>
-            <a href="" class="btn">Distance Learning</a><br>
+            <a href="#" class="btn">Our Commitment</a><br>
+            <a href="#" class="btn">For K12</a><br>
+            <a href="#" class="btn">Accesbility</a><br>
+            <a href="#" class="btn">Distance Learning</a><br>
         </div>
     </div>
     </footer>
