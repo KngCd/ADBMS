@@ -15,62 +15,76 @@
 <body>
 
   <div class="header">
-      <div class="left-side">
-      <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a class="link" href="#"><i class="fa-solid fa-house"></i>Home</a>
-        <a class="link" href="#"><i class="fa-solid fa-calendar"></i>Calendar</a>
-        <button class="dropdown-btn">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <span>Enrolled <i class="fa fa-caret-down"></i></span>
-        </button>
-        <div class="dropdown-container">
-          <a class="link2" href="#">Class 1</a>
-          <a class="link2" href="#">Class 2</a>
-          <a class="link2" href="#">Class 3</a>
-        </div>
-        <a class="link-todo" href="#"><i class="fa-solid fa-list-check"></i>To-Do</a>
-        <a class="link" href="#"><i class="fa-solid fa-gear"></i>Settings</a>
-      </div>
+          <div class="left-side">
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="link" href="#"><i class="fa-solid fa-house"></i>Home</a>
+            <a class="link" href="#"><i class="fa-solid fa-calendar"></i>Calendar</a>
+            <button class="dropdown-btn">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>Class<i class="fa fa-caret-down"></i></span>
+            </button>
+            <div class="dropdown-container">
+            <?php 
+                  session_start();
+                  include('config.php');
+                  $id = $_SESSION['id'];;
+      
+                  // Fetch the classes created by the teacher from the database
+                  $query = mysqli_query($con, "SELECT subject FROM class WHERE teacher_id = '$id'");
+                  $result = mysqli_num_rows($query);
 
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-      <i  id="school-icon" class="fa-solid fa-book-open"></i>
-      <p>Task Mastery</p>
+                  // Loop through the classes and create a link for each class
+                  for ($i = 0; $i < $result; $i++) {
+                    $class = mysqli_fetch_assoc($query);
+                    echo '<a class="link2" href="#"><i class="fa fa-circle fa-fw"></i>' . $class['subject'] . '</a>';
+                  }
+                  ?>
+                </div>
+            <a class="link-todo" href="#"><i class="fa-solid fa-list-check"></i>To-Do</a>
+            <a class="link" href="#"><i class="fa-solid fa-gear"></i>Settings</a>
+          </div>
 
-      <script>
-      function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-      }
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+          <i  id="school-icon" class="fa-solid fa-book-open"></i>
+          <p>Task Mastery</p>
 
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-      }
-       function openNav() {
-        document.getElementById("mySidenav").classList.add("open");
-      }
-
-      function closeNav() {
-        document.getElementById("mySidenav").classList.remove("open");
-      }
-      </script>
-      <script>
-      /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-      var dropdown = document.getElementsByClassName("dropdown-btn");
-      var i;
-
-      for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var dropdownContent = this.nextElementSibling;
-          if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-          } else {
-            dropdownContent.style.display = "block";
+          <script>
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
           }
-        });
-      }
-      </script>
-      </div>
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+          }
+          function openNav() {
+            document.getElementById("mySidenav").classList.add("open");
+            document.body.classList.add("sidebar-open");
+          }
+
+          function closeNav() {
+            document.getElementById("mySidenav").classList.remove("open");
+            document.body.classList.remove("sidebar-open");
+          }
+          </script>
+          <script>
+          /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+          var dropdown = document.getElementsByClassName("dropdown-btn");
+          var i;
+
+          for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var dropdownContent = this.nextElementSibling;
+              if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+              } else {
+                dropdownContent.style.display = "block";
+              }
+            });
+          }
+          </script>
+          </div>
 
     <div class="right-side">
       <button onclick="location.href='create-subject.php'">
@@ -79,63 +93,27 @@
             <i class="fa-solid fa-user"></i>
       </div>
     </div>
+
+    <div class="container2">
+  <?php
+    $id = $_SESSION['id'];
+
+    // Fetch the teacher and the classes he/she created
+    $query = mysqli_query($con, "SELECT t.Username, c.subject FROM teachers t JOIN class c ON t.Id = c.teacher_id WHERE t.Id = $id;");
+
+    // Iterate through the results and display a card for each class
+    while ($row = mysqli_fetch_assoc($query)) {
+  ?>
+      <div class="card">
+        <div class="container">
+          <p><?php echo $row['Username']; ?></p>
+          <h4><b><?php echo $row['subject']; ?></b></h4>
+        </div>
+      </div>
+  <?php
+    }
+  ?>
+</div>
+
 </body>
 </html>
-<?php
-/*if (isset($_SESSION['success'])) {
-        echo "
-        <div id='success-dialog' title='Successful' style='display: none; text-align:center; font-size: 15px;'>
-            <p>{$_SESSION['success']}</p><br>
-            <p>Click 'OK' to close this message.</p><br>
-            <p>Your class code is  <strong>{$_SESSION['randomCode']}</strong> </p>
-        </div>
-        <script>
-            $(document).ready(function() {
-                $(\"#success-dialog\").dialog({
-                    modal: true,
-                    width: 400,
-                    resizable: false,
-                    draggable: false,
-                    dialogClass: 'ui-dialog-success',
-                    buttons: {
-                        'OK': function() {
-                            $( this ).dialog( 'close' );
-                        }
-                    }
-                });
-            });
-        </script>
-        <style>
-        .ui-dialog-success .ui-dialog-titlebar-close {
-            display: none;
-        }
-        .ui-dialog-success .ui-dialog-titlebar {
-            background-color: green;
-            color: #fff;
-            padding: 5px;
-            font-size: 15px;
-        }
-        .ui-dialog-success .ui-dialog-buttonset button {
-            font-size: 18px;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #0c3666;
-            color: #fff;
-            border: none;
-        }
-        .ui-dialog-success .ui-dialog-buttonset button:hover {
-            opacity: 0.8;
-            cursor: pointer;
-        }
-        .ui-dialog-success .ui-dialog-buttonset button:active {
-            opacity: 0.8;
-        }
-        .ui-dialog-buttonpane {
-            padding: 10px 20px;
-            margin: 10px 0px;
-        }
-        </style>";
-        unset($_SESSION['success']);
-    }
-?>*/
-
