@@ -99,20 +99,48 @@
     $id = $_SESSION['id'];
 
     // Fetch the teacher and the classes he/she created
-    $query = mysqli_query($con, "SELECT t.Username, c.subject FROM teachers t JOIN class c ON t.Id = c.teacher_id WHERE t.Id = $id;");
+    $query = mysqli_query($con, "SELECT t.Username, c.subject, c.classcode FROM teachers t JOIN class c ON t.Id = c.teacher_id WHERE t.Id = $id;");
 
     // Iterate through the results and display a card for each class
     while ($row = mysqli_fetch_assoc($query)) {
   ?>
       <div class="card">
-        <div class="container">
-          <p><?php echo $row['Username']; ?></p>
+      <div class="color"></div>
+        <div class="container" data-color="">
+          <p><?php echo $row['Username']; ?></p><br>
           <h4><b><?php echo $row['subject']; ?></b></h4>
+          <p><?php echo 'Classcode: ' . $row['classcode']; ?></p>
         </div>
       </div>
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              const colorDivs = document.querySelectorAll('.color');
+              const containerDivs = document.querySelectorAll('.container');
+
+              containerDivs.forEach((container, index) => {
+                  let randomColor;
+                  do {
+                      randomColor = Math.floor(Math.random()*16777215).toString(16);
+                  } while (randomColor === 'ffffff');
+
+                  container.dataset.color = `#${randomColor}`;
+                  colorDivs[index].style.backgroundColor = `#${randomColor}`;
+                  localStorage.setItem('color' + index, `#${randomColor}`);
+              });
+
+              containerDivs.forEach((container, index) => {
+                  const storedColor = localStorage.getItem('color' + index);
+                  if (storedColor) {
+                      container.dataset.color = storedColor;
+                      colorDivs[index].style.backgroundColor = storedColor;
+                  }
+              });
+          });
+</script>
   <?php
     }
   ?>
+
 </div>
 
 </body>
